@@ -1,4 +1,6 @@
-export function hello(event) {
+import { APIGatewayEvent } from "aws-lambda";
+
+export async function hello(event: APIGatewayEvent): Promise<any> {
   return {
     statusCode: 200,
     body: JSON.stringify(
