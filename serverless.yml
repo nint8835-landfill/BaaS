@@ -8,6 +8,8 @@ provider:
 functions:
   hello:
     handler: dist/handler.hello
+    layers:
+      - arn:aws:serverlessrepo:us-east-1:145266761615:applications/image-magick-lambda-layer
     events:
       - http:
           path: hello
