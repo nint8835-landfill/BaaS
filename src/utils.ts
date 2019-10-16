@@ -1,8 +1,8 @@
 import gm, { State, Dimensions } from "gm";
-import request from "request-promise-native";
+import request from "request";
 
 export async function getImage(url: string): Promise<State> {
-  return gm.subClass({ imageMagick: true })(await request(url));
+  return gm(request(url));
 }
 
 export function getImageSize(image: State): Promise<Dimensions> {
