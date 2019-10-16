@@ -1,8 +1,8 @@
 import gm, { State, Dimensions } from "gm";
-import request from "request";
+import request from "request-promise-native";
 
 export async function getImage(url: string): Promise<State> {
-  return gm(request(url));
+  return gm(await request(url));
 }
 
 export function getImageSize(image: State): Promise<Dimensions> {
