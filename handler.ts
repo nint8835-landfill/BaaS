@@ -1,8 +1,8 @@
-import { APIGatewayEvent } from "aws-lambda";
+import { APIGatewayEvent, ProxyResult } from "aws-lambda";
 import { getImage } from "./src/utils";
 import { OPERATIONS } from "./src/operations";
 
-export async function hello(event: APIGatewayEvent): Promise<any> {
+export async function hello(event: APIGatewayEvent): Promise<ProxyResult> {
   if (
     event.queryStringParameters &&
     event.queryStringParameters.url &&
@@ -16,7 +16,8 @@ export async function hello(event: APIGatewayEvent): Promise<any> {
         body: (await operator(image)).toString("base64"),
         headers: {
           "Content-Type": "image/png"
-        }
+        },
+        isBase64Encoded: true
       };
     } else {
       return {
