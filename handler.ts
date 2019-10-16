@@ -3,6 +3,7 @@ import { getImage, getImageSize } from "./src/utils";
 
 export async function hello(event: APIGatewayEvent): Promise<any> {
   if (event.queryStringParameters && event.queryStringParameters.url) {
+    console.log(event.queryStringParameters.url);
     const image = await getImage(event.queryStringParameters.url);
     const imageSize = await getImageSize(image);
     return {
