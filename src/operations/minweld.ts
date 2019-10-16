@@ -9,5 +9,5 @@ export async function minweld(image: State): Promise<Buffer> {
     .implode(0.2)
     .quality(8);
 
-  return promisify<string, Buffer>(newImage.toBuffer)("PNG");
+  return promisify<string, Buffer>(newImage.toBuffer.bind(newImage))("PNG");
 }
