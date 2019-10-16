@@ -9,7 +9,7 @@ functions:
   hello:
     handler: dist/handler.hello
     layers:
-      - arn:aws:serverlessrepo:us-east-1:145266761615:applications/image-magick-lambda-layer
+      - arn:aws:lambda:ca-central-1:175033217214:layer:graphicsmagick:2
     events:
       - http:
           path: hello
