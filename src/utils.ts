@@ -11,3 +11,9 @@ export function getImageSize(image: State): Promise<Dimensions> {
     bufferStream: true
   });
 }
+
+export async function saveImage(image: State): Promise<string> {
+  return (await promisify<string, Buffer>(image.toBuffer.bind(image))(
+    "PNG"
+  )).toString("base64");
+}

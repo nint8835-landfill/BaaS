@@ -1,5 +1,5 @@
 import { APIGatewayEvent, ProxyResult } from "aws-lambda";
-import { getImage } from "./src/utils";
+import { getImage, saveImage } from "./src/utils";
 import { OPERATIONS } from "./src/operations";
 
 export async function hello(event: APIGatewayEvent): Promise<ProxyResult> {
@@ -13,7 +13,7 @@ export async function hello(event: APIGatewayEvent): Promise<ProxyResult> {
       const image = await getImage(event.queryStringParameters.url);
       return {
         statusCode: 200,
-        body: (await operator(image)).toString("base64"),
+        body: await saveImage(await operator(image)),
         headers: {
           "Content-Type": "image/png"
         },

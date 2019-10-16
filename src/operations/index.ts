@@ -2,7 +2,7 @@ import { minweld } from "./minweld";
 import { State } from "gm";
 
 interface OperationMap {
-  [operation: string]: (image: State) => Promise<Buffer>;
+  [operation: string]: (image: State) => Promise<State>;
 }
 
 export const OPERATIONS: OperationMap = {
