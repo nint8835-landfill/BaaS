@@ -6,4 +6,4 @@ export const minweld = async (image: State): Promise<State> =>
     .blackThreshold(0.5)
     .sharpen(2, 5)
     .implode(0.6)
-    .wave(10, 20);
+    .wave(5, 200);
