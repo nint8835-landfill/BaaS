@@ -31,6 +31,6 @@
     "gm": "^1.23.1",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7",
-    "serverless": "^1.54.0"
+    "serverless": "^3.25.1"
   }
 }
